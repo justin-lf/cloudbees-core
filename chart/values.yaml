@@ -13,7 +13,7 @@ OperationsCenter:
   # Operations Center docker image
   Image:
     # OperationsCenter.Image.dockerImage -- Container image to use for Operations Center
-    dockerImage: cloudbees/cloudbees-cloud-core-oc:2.319.3.4
+    dockerImage: registry1.dso.mil/ironbank/cloudbees/core/core-oc:2.319.3.4-ra
     # OperationsCenter.Image.dockerPullPolicy -- https://kubernetes.io/docs/concepts/containers/images/#updating-images
     dockerPullPolicy: null
 
@@ -21,7 +21,7 @@ OperationsCenter:
   # Enable this option when using a private registry.
   # https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line
   # OperationsCenter.ImagePullSecrets -- Name of image pull secret to pull private Docker images or an array of image pull secrets
-  ImagePullSecrets: null
+  ImagePullSecrets: private-registry
 
   # Configuration as Code (CasC) for Operations Center.
   CasC:
@@ -230,7 +230,7 @@ Master:
   # Docker image inserted in Operations Center automatically
   Image:
     # Master.Image.dockerImage -- Used to override the default docker image
-    dockerImage: cloudbees/cloudbees-core-mm:2.319.3.4
+    dockerImage: registry1.dso.mil/ironbank/cloudbees/core/core-mm:2.319.3.4-ra
   # Master.JavaOpts -- Additional Java options to pass to managed masters. For example, setting up a JMX port
   JavaOpts: null
 
@@ -247,12 +247,12 @@ Agents:
     Create: false
   Image:
     # Agents.Image.dockerImage -- Used to override the default docker image used for agents
-    dockerImage: cloudbees/cloudbees-core-agent:2.319.3.4
+    dockerImage: registry1.dso.mil/ironbank/cloudbees/core/agent:2.319.3.4-ra
   # Image pull secrets
   # Enable this option when using a private registry.
   # https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line
   # Agents.ImagePullSecrets -- Name of image pull secret to pull private Docker images or an array of image pull secrets
-  ImagePullSecrets: null
+  ImagePullSecrets: private-registry
 
 Persistence:
   # Persistence.StorageClass -- Persistent Volume Storage Class for Jenkins Home
