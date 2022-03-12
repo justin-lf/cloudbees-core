@@ -5,6 +5,35 @@
 # Subdomain -- Whether to use a DNS subdomain for each controller.
 Subdomain: false
 
+# ingress-nginx.Enabled -- Installs the [ingress-nginx](https://github.com/kubernetes/ingress-nginx/tree/master/charts/ingress-nginx) controller (optional).
+# Enable this section if you don't have an existing installation of ingress-nginx controller
+# Note: use `beta.kubernetes.io/os` when deploying on Kubernetes versions below 1.16
+ingress-nginx:
+  Enabled: false
+  controller:
+    allowSnippetAnnotations: false # mitigation for CVE-2021-25742
+    ingressClass: nginx
+    nodeSelector:
+      kubernetes.io/os: linux
+    service:
+      externalTrafficPolicy: Local
+    admissionWebhooks:
+      patch:
+        nodeSelector:
+          kubernetes.io/os: linux
+  defaultBackend:
+    nodeSelector:
+      kubernetes.io/os: linux
+
+# Sidecar injector (optional)
+# Useful when running infrastructure (GitHub Enterprise, Nexus, etc.) using a self-signed certificate.
+# It allows you to inject certificate bundles in pods running in CloudBees Core so that they can trust provided certificates
+# without having to build custom docker images.
+# Use helm inspect readme cloudbees/cloudbees-sidecar-injector to read more on this optional components
+sidecarinjector:
+  # sidecarinjector.Enabled -- Whether to enable installation of Sidecar Injector
+  Enabled: false
+
 # Operations Center options
 OperationsCenter:
   # OperationsCenter.Enabled -- Disable for particular use case like setting up namespaces to host masters only
