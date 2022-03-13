@@ -79,8 +79,8 @@ OperationsCenter:
   Name: cjoc
 
   # OperationsCenter.Protocol -- the protocol used to access CJOC. Possible values are http/https.
-  Protocol: http
-  # Protocol: https
+  # Protocol: http
+  Protocol: https
 
   # OperationsCenter.Port -- the port used to access CJOC. Defaults to 80/443 depending on Protocol. Can be overridden.
   # Port: 80
@@ -411,7 +411,7 @@ networkPolicies:
     istio: ingressgateway
   egressHttps:
     enabled: true
-    
+
 OpenShift:
   enabled: false
 
