@@ -13,5 +13,5 @@ spec:
       protocol: TCP
   podSelector:
     matchLabels:
-      app: cloudbees
+      app: cjoc
 {{- end }}
