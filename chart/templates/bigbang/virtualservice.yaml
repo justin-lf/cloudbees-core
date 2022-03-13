@@ -1,0 +1,28 @@
+{{- if .Values.istio.enabled -}}
+{{- $serviceName := include "cloudbees.fullname" . -}}
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: {{ template "cloudbees.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    helm.sh/chart: {{ include "cloudbees.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/part-of: cloudbees
+spec:
+  gateways:
+  {{- range .Values.istio.cloudbees.gateways }}
+    - {{ . }}
+  {{- end }}
+  hosts:
+  {{- range .Values.istio.cloudbees.hosts }}
+    - {{ tpl . $}}
+  {{- end }}
+  http:
+    - route:
+        - destination:
+            port:
+              number: {{ .Values.service.externalPort }}
+            host: {{ $serviceName }}
+{{- end }}
