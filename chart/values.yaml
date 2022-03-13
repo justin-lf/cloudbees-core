@@ -181,6 +181,7 @@ OperationsCenter:
     Annotations:
       kubernetes.io/tls-acme: 'false'
       kubernetes.io/ingress.allow-http: "false"
+      nginx.ingress.kubernetes.io/ingress.allow-http: "false"
 
     tls:
       # OperationsCenter.Ingress.tls.Enable -- Set this to true in order to enable TLS on the ingress record
