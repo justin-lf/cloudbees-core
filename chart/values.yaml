@@ -385,19 +385,19 @@ rbac:
 # Big Bang Additions
 ## Your FQDN will be ${ .Values.subdomain }.${ .Values.domain }
 domain: bigbang.dev
-istio:
-  # Toggle istio integration 
-  enabled: false
-  cloudbees:
-    # Toggle vs creation
-    enabled: true
-    annotations: {}
-    labels: {}
-    gateways:
-      - istio-system/main
-    hosts:
-      - cloudbees.{{ .Values.domain }}
-  injection: disabled
+# istio:
+#   # Toggle istio integration 
+#   enabled: false
+#   cloudbees:
+#     # Toggle vs creation
+#     enabled: true
+#     annotations: {}
+#     labels: {}
+#     gateways:
+#       - istio-system/main
+#     hosts:
+#       - cloudbees.{{ .Values.domain }}
+#   injection: disabled
 monitoring:
   enabled: false
   
