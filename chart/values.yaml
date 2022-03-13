@@ -50,7 +50,7 @@ OperationsCenter:
   # Enable this option when using a private registry.
   # https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line
   # OperationsCenter.ImagePullSecrets -- Name of image pull secret to pull private Docker images or an array of image pull secrets
-  ImagePullSecrets: null
+  ImagePullSecrets: private-registry
 
   # Configuration as Code (CasC) for Operations Center.
   CasC:
@@ -171,8 +171,7 @@ OperationsCenter:
   Tolerations: []
 
   # OperationsCenter.Annotations -- Additional annotations to put on the pod running Operations Center
-  Annotations: 
-    kubernetes.io/ingress.allow-http: "false"
+  Annotations: {}
 
   Ingress:
     # OperationsCenter.Ingress.Class -- Ingress class to use for OC and MM ingresses
@@ -283,7 +282,7 @@ Agents:
   # Enable this option when using a private registry.
   # https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line
   # Agents.ImagePullSecrets -- Name of image pull secret to pull private Docker images or an array of image pull secrets
-  ImagePullSecrets: null
+  ImagePullSecrets: private-registry
 
 Persistence:
   # Persistence.StorageClass -- Persistent Volume Storage Class for Jenkins Home
