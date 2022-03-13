@@ -411,6 +411,9 @@ networkPolicies:
     istio: ingressgateway
   egressHttps:
     enabled: true
+    
+OpenShift:
+  enabled: false
 
 service:
   type: ClusterIP
