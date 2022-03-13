@@ -43,11 +43,11 @@ kind: ServiceMonitor
 metadata:
   labels:
     prometheus: k8s
-  name: {{ template "cloudbees.fullname" . }}
+  name: {{ template "cloudbees-core.fullname" . }}
 spec:
   selector:
     matchLabels:
-      app: {{ template "cloudbees.fullname" . }}
+      app: {{ template "cloudbees-core.fullname" . }}
   namespaceSelector:
     matchNames:
       - {{ .Release.Namespace }}
