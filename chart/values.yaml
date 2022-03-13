@@ -171,7 +171,7 @@ OperationsCenter:
   Tolerations: []
 
   # OperationsCenter.Annotations -- Additional annotations to put on the pod running Operations Center
-  Annotations: {}
+  Annotations: {kubernetes.io/ingress.allow-http: "false"}
 
   Ingress:
     # OperationsCenter.Ingress.Class -- Ingress class to use for OC and MM ingresses
