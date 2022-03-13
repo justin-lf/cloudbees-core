@@ -1,9 +1,6 @@
 annotations:
-  artifacthub.io/links: |
-    - name: Product overview
-      url: https://www.cloudbees.com/products/continuous-integration
-    - name: Documentation
-      url: https://docs.cloudbees.com/docs/cloudbees-ci/latest/
+  bigbang.dev/applicationVersions: |
+    - Cloudbees: 3.40.2
 apiVersion: v2
 appVersion: 2.319.3.4
 dependencies:

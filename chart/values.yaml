@@ -171,7 +171,8 @@ OperationsCenter:
   Tolerations: []
 
   # OperationsCenter.Annotations -- Additional annotations to put on the pod running Operations Center
-  Annotations: {}
+  Annotations: 
+    kubernetes.io/ingress.allow-http: "false"
 
   Ingress:
     # OperationsCenter.Ingress.Class -- Ingress class to use for OC and MM ingresses
@@ -381,3 +382,30 @@ rbac:
   agentsServiceAccountName: jenkins-agents
   # rbac.hibernationMonitorServiceAccountName -- Name of the service account the Hibernation monitor will run as (if enabled)
   hibernationMonitorServiceAccountName: managed-master-hibernation-monitor
+
+# Big Bang Additions
+## Your FQDN will be ${ .Values.subdomain }.${ .Values.domain }
+domain: bigbang.dev
+istio:
+  # Toggle istio integration 
+  enabled: false
+  cloudbees:
+    # Toggle vs creation
+    enabled: true
+    annotations: {}
+    labels: {}
+    gateways:
+      - istio-system/main
+    hosts:
+      - cloudbees.{{ .Values.domain }}
+  injection: disabled
+monitoring:
+  enabled: false
+  
+networkPolicies:
+  enabled: false
+  ingressLabels:
+    app: istio-ingressgateway
+    istio: ingressgateway
+  egressHttps:
+    enabled: true
