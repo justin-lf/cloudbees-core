@@ -171,7 +171,7 @@ OperationsCenter:
   Tolerations: []
 
   # OperationsCenter.Annotations -- Additional annotations to put on the pod running Operations Center
-  Annotations: {kubernetes.io/ingress.allow-http: "false"}
+  Annotations: {}
 
   Ingress:
     # OperationsCenter.Ingress.Class -- Ingress class to use for OC and MM ingresses
@@ -180,6 +180,7 @@ OperationsCenter:
     # OperationsCenter.Ingress.Annotations -- annotations to put on Ingress object
     Annotations:
       kubernetes.io/tls-acme: 'false'
+      kubernetes.io/ingress.allow-http: "false"
 
     tls:
       # OperationsCenter.Ingress.tls.Enable -- Set this to true in order to enable TLS on the ingress record
