@@ -176,6 +176,7 @@ OperationsCenter:
     nginx.ingress.kubernetes.io/ingress.allow-http: "false"
 
   Ingress:
+    Enabled: false
     # OperationsCenter.Ingress.Class -- Ingress class to use for OC and MM ingresses
     # Should be set to the same value as nginx-ingress.controller.ingressClass if enabled
     Class: nginx
